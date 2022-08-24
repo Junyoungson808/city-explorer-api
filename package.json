@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Junyoungson808/city-explorer-exp-server/issues"
   },
-  "homepage": "https://github.com/Junyoungson808/city-explorer-exp-server#readme"
+  "homepage": "https://github.com/Junyoungson808/city-explorer-exp-server#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
 }
