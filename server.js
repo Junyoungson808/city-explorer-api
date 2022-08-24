@@ -34,13 +34,15 @@ app.get('/hello', (request, response) => {
     .send(`HELLO ${firstName} ${lastName} FROM THE HELLO ROUTE!`);
 });
 // Weather Route
-app.get('/weather', (request, response) => {
+app.get('/weather', (request, response, next) => {
   let cityName = request.query.city;
   let dataToGroom = data.find((city) => city.city_name === cityName);
   let dataToSend = dataToGroom.data.map(object => {
     return new Forcast(object);
   });
   response.status(200).send(dataToSend);
+}catch(error){
+  
 });
 
 
