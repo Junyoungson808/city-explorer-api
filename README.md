@@ -24,9 +24,9 @@ For each of the lab features, make an estimate of the time it will take you to c
 
 Name of feature: _server.js__
 
-Estimate of time needed to complete: _10hrs_
+Estimate of time needed to complete: _10hrs+_
 
-Start time: _9:00_
+Start time: _6:00_
 
 Finish time: _____
 
