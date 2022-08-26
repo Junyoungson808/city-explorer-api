@@ -1,3 +1,5 @@
+# notes
+
 // BACKEND
 
 PORT=3001
@@ -5,4 +7,4 @@ UNSPLASH_ACCESS_KEY=
 
 // FRONTEND
 
-REACT_APP_SERVER_URL=http://localhost:3001
+REACT_APP_SERVER_URL=<http://localhost:3001>

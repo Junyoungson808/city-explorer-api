@@ -6,7 +6,7 @@ console.log('FIRST EVER SERVER!');
 //bring in Express
 const express = require('express');
 const cors = require('cors');
-const data = require('./data/weather.json');
+const getWeather = require('./modules/weather.js');
 
 require('dotenv').config();
 
@@ -24,49 +24,18 @@ app.get('/', (request, response) => {
   response.status(200).send('Welcome to our server');
 });
 
-// Hello Route
-app.get('/hello', (request, response) => {
-  console.log(request.query);
-  let firstName = request.query.firstName;
-  let lastName = request.query.lastName;
-  response
-    .status(200)
-    .send(`HELLO ${firstName} ${lastName} FROM THE HELLO ROUTE!`);
-});
 // Weather Route
-app.get('/weather', (request, response, next) => {
-  let cityName = request.query.city;
-  let dataToGroom = data.find((city) => city.city_name === cityName);
-  let dataToSend = dataToGroom.data.map(object => {
-    return new Forcast(object);
-  });
-  response.status(200).send(dataToSend);
-}catch(error){
-  
-});
+app.get('/weather', getWeather);
 
-
-class Forecast {
-  constructor(weatherObj){
-    this.date = weatherObj.valid_date;
-    this.description = weatherObj.weather.description;
-  }
-}
-
-// class Pet {
-//   constructor(petObj) {
-//     this.name = petObj.name;
-//     this.breed = petObj.breed;
-//   }
-// }
 
 //Catch all - needs to be at the bottom
 app.get('*', (request, response) => {
   response.status(404).send('This route does not exist');
 });
 
-// app.use((error, request, response, next) => {
-//   response.status(404).send(error.message);
-// });
+app.use((error, request, response,) => {
+  response.status(500).send(error.message);
+});
+
 
 app.listen(PORT, () => console.log(`We are up on PORT: ${PORT}`));
