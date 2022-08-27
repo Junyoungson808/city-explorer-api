@@ -5,11 +5,7 @@ const axios = require('axios');
 let cache = {};
 
 async function getMovie(request, response, next) {
-  // let lat = request.query.lat;
-  // let lon = request.query.lon;
-  // const url = `https://api.weatherbit.io/v2.0/forcast/daily?lat=${lat}&lon=${lon}&key=${process.env.REACT_APP_WEATHERBIT_ACCESS_KEY}`;
-  //api.themoviedb.org/3/search/movie?api_key=<<api_key>>&language=en-US&page=1&include_adult=false
-  https: console.log('Check this OUT', getMovie);
+
   try {
     let searchQueryFromFrontEnd = request.query.searchQuery;
     let key = searchQueryFromFrontEnd + 'extension';
@@ -46,7 +42,7 @@ async function getMovie(request, response, next) {
 class Movies {
   constructor(movieObj) {
     this.title = movieObj.title;
-    this.overview = movieObj.weather.overview;
+    this.overview = movieObj.overview;
 
   }
 }
