@@ -3,11 +3,11 @@
 const axios = require('axios');
 
 async function getWeather(request, response, next) {
-  let lat = request.query.lat;
-  let lon = request.query.lon;
-  const url = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${lat}&lon=${lon}&key=${process.env.REACT_APP_WEATHERBIT_ACCESS_KEY}`;
-  console.log('Check this OUT', getWeather);
   try {
+    let lat = request.query.lat;
+    let lon = request.query.lon;
+    const url = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${lat}&lon=${lon}&key=${process.env.REACT_APP_WEATHERBIT_ACCESS_KEY}`;
+    console.log('Check this OUT', getWeather);
     const weatherResponse = await axios.get(url);
 
     let dataToGroom = weatherResponse.data;
