@@ -7,6 +7,7 @@ console.log('FIRST EVER SERVER!');
 const express = require('express');
 const cors = require('cors');
 const getWeather = require('./modules/weather.js');
+const getMovie = require('./modules/movie.js');
 
 require('dotenv').config();
 
@@ -26,6 +27,9 @@ app.get('/', (request, response) => {
 
 // Weather Route
 app.get('/weather', getWeather);
+
+// Movie Route
+app.get('/movie', getMovie);
 
 
 //Catch all - needs to be at the bottom
